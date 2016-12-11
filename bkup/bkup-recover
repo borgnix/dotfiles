@@ -1,0 +1,23 @@
+#!/bin/bash
+configs=$(dirname $(dirname $(readlink -f $0)))/"configs"
+
+##Create Soft Link For All Configuration Files
+for config in "$configs"/{.??,}*
+do
+    if [[ -d $config ]]; then
+        dir=~
+        if [ -e ${config}/.config_path ]; then
+            dir=`cat ${config}/.config_path`
+            if [[ ! -d $dir ]]; then
+                (>&2 echo ".config_path: $dir is not a directory")
+                exit 1
+            fi
+        fi
+        files=`find $config -mindepth 1 -maxdepth 1 ! -name ".config_path" -a -type f -o -type d | xargs`
+        ln -s -t $dir $files  -f
+        [ 0 -ne $? ] || echo create link for $files at $dir
+    else
+        ln -s  ${config} ~/ -f
+        [ 0 -ne $? ] || echo create link for ${config}
+    fi
+done

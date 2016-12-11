@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ $# -gt 1 ]; then
+    (>&2 echo "Usage: bkup-commit [commit message] ")
+    exit 1
+fi
+
+dotfiles=$(dirname $(dirname $(readlink -f $0)))
+
+commit_msg="Regular Backup."
+[ ! -z "$1" ] && commit_msg="$1"
+
+git -C "$dotfiles" add .
+git -C "$dotfiles" commit -a -m "$commit_msg"
+

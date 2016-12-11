@@ -1,0 +1,3 @@
+#!/bin/bash
+dotfiles=$(dirname $(dirname $(readlink -f $0)))
+git -C "$dotfiles" push

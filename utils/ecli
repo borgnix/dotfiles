@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+export LC_ALL= LANG=en_US.UTF-8 LC_CTYPE=zh_CN.UTF-8 ALTERNATE_EDITOR=""
+
+if [[ "$#" -lt 1 ]]; then
+    emacsclient -n -c -e \
+                "(select-frame-set-input-focus (selected-frame))" \
+                "(delete-other-windows)" \
+                "(toggle-frame-maximized)"\
+                "(spacemacs/home)"
+else
+    if [ "$1" = "--" ]; then
+        filename="$2"
+    else
+        filename="$1"
+    fi
+    emacsclient -n -c -e \
+                # "(select-frame-set-input-focus (selected-frame))" \
+                "(select-frame-set-input-focus (selected-frame))" \
+                "(delete-other-windows)" \
+                "(toggle-frame-maximized)"\
+                "(find-file \"$filename\")"
+fi

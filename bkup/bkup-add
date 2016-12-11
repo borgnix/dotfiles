@@ -1,0 +1,52 @@
+#!/bin/bash
+configs=$(dirname $(dirname $(readlink -f $0)))/configs
+
+module_name=""
+OPTIND=1
+
+help() {
+    echo "Usage: [-m module_name] <Backup File Name ...>"
+    exit 1
+}
+
+while getopts ":m:h?" opt; do
+    case "$opt" in
+        m)
+            module_name=$OPTARG
+            ;;
+        \?)
+            help
+            ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+module_path="${configs}/${module_name}"
+if [ ! -z "$module_name" ]; then
+    mkdir -p $module_path
+    # echo Module Name: $module_name
+else
+    help
+fi
+
+for param in $@; do
+    if [ -e $param ] || [ -d $param ]; then
+        config_path=$(dirname $(readlink -f param))
+        # echo config_path $config_path
+        if [ -e ${module_path}/.config_path ]; then
+            original_path=`cat ${module_path}/.config_path`
+            if [ $original_path != $config_path ]; then 
+                (>&2 echo Path $config_path Not Equal To Original Path $original_path );
+                exit 1;
+            fi
+        fi
+        echo "$config_path" > ${module_path}/.config_path
+        mv $(readlink -f $param) ${module_path}
+        # echo "$config_path" "${module_path}/.config_path"
+    else
+        echo "Invalid Parameter Type $param" 
+    fi
+done
+
+($(dirname $(readlink -f $0))/bkup-recover)
