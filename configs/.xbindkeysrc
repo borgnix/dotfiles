@@ -47,7 +47,7 @@
   control+alt + q
 
 # Lockscreen
-"lock"
+"bash lock"
   control+alt + l
 
 # Emacs with daemon
