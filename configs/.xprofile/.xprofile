@@ -1,3 +1,5 @@
 source ~/.zshenv
 xbindkeys
+echo "PATH of Mine $PATH" > /home/robin/tmp/xsession.log
+mpd
 bkup-commit
