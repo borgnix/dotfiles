@@ -71,7 +71,7 @@ alias yd="ydcv"
 alias hdd="/run/media/robin/hdd-disk"
 alias sdt='WINEPREFIX="/home/robin/telelogic_wine" wine /home/robin/telelogic_wine/drive_c/Telelogic/SDL_TTCN_Suite4.3/bin/wini386/sdt.exe'
 alias sseftp='lftp student:student@10.125.110.141/ -e "set ftp:prefer-epsv no; set ftp:use-allo no"'
-
+alias dp="DISPLAY=:0"
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 source /etc/profile.d/vte.sh
