@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-export LC_ALL= LANG=en_US.UTF-8 LC_CTYPE=zh_CN.UTF-8 ALTERNATE_EDITOR=""
+export LC_ALL= LANG=en_US.UTF-8 LC_CTYPE=zh_CN.UTF-8 ALTERNATE_EDITOR="" GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus QT_IM_MODULE=ibus
 
 if [[ "$#" -lt 1 ]]; then
     emacsclient -n -c -e \
