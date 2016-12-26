@@ -73,9 +73,28 @@ alias sdt='WINEPREFIX="/home/robin/telelogic_wine" wine /home/robin/telelogic_wi
 alias sseftp='lftp student:student@10.125.110.141/ -e "set ftp:prefer-epsv no; set ftp:use-allo no"'
 alias -g G="| grep"
 alias dp="DISPLAY=:0"
+alias kdeshare='kdeconnect-cli -n Meizu --share '
+
+function mpd2netease() {
+    local filename="$(mpc -h /home/robin/.config/mpd/socket -f '%file%')"
+    kdeshare "orpheus://song/${filename%.*}"
+}
+
+
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 source /etc/profile.d/vte.sh
 
-#fasd
+# fasd
 eval "$(fasd --init auto)"
+
+# Tmux
+if which tmux >/dev/null 2>&1; then
+    # if no session is started, start a new session
+    test -z ${TMUX} && tmux
+
+    # when quitting tmux, try to attach
+    while test -z ${TMUX}; do
+        tmux attach || break
+    done
+fi
