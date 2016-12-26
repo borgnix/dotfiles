@@ -21,6 +21,7 @@ export LC_LANG=und
 export ALTERNATE_EDITOR=""
 export EDITOR="emacsclient"
 
+export PAGER="less"
 export LD_LIBRARY_PATH=/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
