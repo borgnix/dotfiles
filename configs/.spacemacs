@@ -305,6 +305,7 @@ you should place your code here."
           org-export-with-smart-quotes t
           org-startup-indented t
           org-plantuml-jar-path "~/plantuml/plantuml.jar"
+          org-export-headline-levels 7
           )
     (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s")
     (add-to-list 'org-src-lang-modes (quote ("dot" . graphviz-dot)))
