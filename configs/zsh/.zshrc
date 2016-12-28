@@ -73,6 +73,7 @@ alias sdt='WINEPREFIX="/home/robin/telelogic_wine" wine /home/robin/telelogic_wi
 alias sseftp='lftp student:student@10.125.110.141/ -e "set ftp:prefer-epsv no; set ftp:use-allo no"'
 alias -g G="| grep"
 alias dp="DISPLAY=:0"
+alias np="ncmpcpp"
 alias kdeshare='kdeconnect-cli -n Meizu --share '
 
 function mpd2netease() {
@@ -98,3 +99,4 @@ if which tmux >/dev/null 2>&1; then
         tmux attach || break
     done
 fi
+source ~/.zshenv

@@ -14,7 +14,6 @@ else
         filename="$1"
     fi
     emacsclient -n -c -e \
-                # "(select-frame-set-input-focus (selected-frame))" \
                 "(select-frame-set-input-focus (selected-frame))" \
                 "(delete-other-windows)" \
                 "(toggle-frame-maximized)"\
