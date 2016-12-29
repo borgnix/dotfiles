@@ -42,6 +42,8 @@ HYPHEN_INSENSITIVE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git archlinux encode64 zsh-autosuggestions zsh-navigation-tools extract dirhistory)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/pinyin-completion/shell/pinyin-comp.zsh
+
 # User configuration 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -88,7 +90,7 @@ source /etc/profile.d/vte.sh
 
 # fasd
 eval "$(fasd --init auto)"
-
+eval "$(thefuck --alias)"
 # Tmux
 if which tmux >/dev/null 2>&1; then
     # if no session is started, start a new session
