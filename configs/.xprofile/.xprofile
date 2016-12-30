@@ -1,5 +1,6 @@
 source ~/.zshenv
 xbindkeys
 echo "PATH of Mine $PATH" > /home/robin/tmp/xsession.log
+shadowsocks-libqss -c .config/shadowsocks/mzh.json 1>".config/shadowsocks/log.log" &
 mpd
 bkup-commit
