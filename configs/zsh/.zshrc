@@ -76,6 +76,7 @@ alias sseftp='lftp student:student@10.125.110.141/ -e "set ftp:prefer-epsv no; s
 alias -g G="| grep"
 alias dp="DISPLAY=:0"
 alias np="ncmpcpp"
+alias vimpc="vimpc -h ~/.config/mpd/socket"
 alias kdeshare='kdeconnect-cli -n Meizu --share '
 
 function mpd2netease() {
