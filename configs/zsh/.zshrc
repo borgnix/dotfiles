@@ -77,8 +77,8 @@ alias -g G="| grep"
 alias dp="DISPLAY=:0"
 alias np="ncmpcpp"
 alias vimpc="vimpc -h ~/.config/mpd/socket"
-alias kdeshare='kdeconnect-cli -n Meizu --share '
-
+alias kdeshare="kdeconnect-cli -n Meizu --share "
+alias incognito="unset HISTFILE"
 function mpd2netease() {
     local filename="$(mpc -h /home/robin/.config/mpd/socket -f '%file%')"
     kdeshare "orpheus://song/${filename%.*}"
