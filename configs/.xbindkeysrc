@@ -62,6 +62,14 @@
 "termite"
   control+alt + t
 
+# Volume Control
+"amixer set Master toggle"
+  control+alt + m
+
+"amixer set Master 5%+"
+  control+alt + k
+"amixer set Master 5%-"
+  control+alt + j
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
 #

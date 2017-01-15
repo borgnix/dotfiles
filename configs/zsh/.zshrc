@@ -80,6 +80,8 @@ alias vimpc="vimpc -h ~/.config/mpd/socket"
 alias kdeshare="kdeconnect-cli -n Meizu --share "
 alias incognito="unset HISTFILE"
 alias unzipwin="unzip -O cp936"
+alias xclipb="xclip -selection CLIPBOARD"
+alias mpc="mpc -h /home/robin/.config/mpd/socket"
 function mpd2netease() {
     local filename="$(mpc -h /home/robin/.config/mpd/socket -f '%file%')"
     kdeshare "orpheus://song/${filename%.*}"
