@@ -75,7 +75,6 @@ alias sdt='WINEPREFIX="/home/robin/telelogic_wine" wine /home/robin/telelogic_wi
 alias sseftp='lftp student:student@10.125.110.141/ -e "set ftp:prefer-epsv no; set ftp:use-allo no"'
 alias -g G="| grep"
 alias dp="DISPLAY=:0"
-alias np="ncmpcpp"
 alias vimpc="vimpc -h ~/.config/mpd/socket"
 alias kdeshare="kdeconnect-cli -n Meizu --share "
 alias incognito="unset HISTFILE"
@@ -88,13 +87,15 @@ function mpd2netease() {
 }
 
 
-# export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 source /etc/profile.d/vte.sh
 
 # fasd
 eval "$(fasd --init auto)"
+
+# the fuck
 eval "$(thefuck --alias)"
+
 # Tmux
 if which tmux >/dev/null 2>&1; then
     # if no session is started, start a new session
