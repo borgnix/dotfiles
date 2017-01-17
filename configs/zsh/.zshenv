@@ -25,3 +25,4 @@ export PAGER="less"
 export LD_LIBRARY_PATH=/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
+export XDG_CONFIG_HOME=$HOME/.config
