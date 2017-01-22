@@ -292,7 +292,7 @@ you should place your code here."
     (setq org-directory "~/syncfolder/org/"
           org-default-notes-file "~/syncfolder/org/notes.org"
           org-agenda-files '("~/syncfolder/org/calendar")
-          org-todo-keywords '((sequence "TODO" "|" "DONE" "CANCELED"))
+          org-todo-keywords '((sequence "TODO" "NEXT" "|" "DONE" "CANCELED"))
           org-agenda-skip-scheduled-if-done t
           org-agenda-skip-scheduled-if-deadline-is-shown t
           org-src-fontify-natively t
