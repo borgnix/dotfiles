@@ -289,11 +289,11 @@ you should place your code here."
   (define-key evil-motion-state-map "F" 'evil-avy-goto-char)
 
   (with-eval-after-load 'org
-    (setq org-directory "~/syncfolder/org/"
-          org-default-notes-file "~/syncfolder/org/notes.org"
-          org-agenda-files '("~/syncfolder/org/calendar")
+    (setq org-directory "~/org/"
+          org-default-notes-file "~/org/collections.org"
+          org-agenda-files '("~/org/calendar")
           org-todo-keywords '((sequence "TODO" "NEXT" "|" "DONE" "CANCELED"))
-          org-agenda-skip-scheduled-if-done t
+          org-agenda-skip-scheduled-if-done nil
           org-agenda-skip-scheduled-if-deadline-is-shown t
           org-src-fontify-natively t
                                         ;org-mode export to latex settings
@@ -304,16 +304,28 @@ you should place your code here."
           org-startup-indented t
           org-plantuml-jar-path "~/plantuml/plantuml.jar"
           org-export-headline-levels 7
+
+          org-capture-templates '(("t" "Todo" entry (file "~/org/calendar/buffer.org")
+                                   "* TODO %? %^G \n %i\n ")
+                                  ("n" "Note" entry (file "~/org/collections.org")
+                                   "* %? \n %i\n")
+                                  )
+
+          org-refile-use-outline-path t
+          org-outline-path-complete-in-steps t
+
+          org-refile-targets '((nil :maxlevel . 2)
+                               ("~/org/calendar/agenda.org" :maxlevel . 2))
+
+          org-archive-location "~/org/calendar/archive.org::datetree/"
           )
+
     (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s")
     (add-to-list 'org-src-lang-modes (quote ("dot" . graphviz-dot)))
     (evil-declare-key 'normal evil-org-mode-map "<" (lambda () (interactive)
                                                       (call-interactively (if (org-at-heading-p) #'org-promote-subtree #'evil-shift-left))))
     (evil-declare-key 'normal evil-org-mode-map ">" (lambda () (interactive)
                                                       (call-interactively (if (org-at-heading-p) #'org-demote-subtree #'evil-shift-right))))
-    ;; \\setmainfont{Arno Pro}
-    ;; \\setsansfont{Proxima Nova}
-    ;; \\setmonofont{Source Code Pro}
     (add-to-list 'org-latex-classes
                  '("buptsse-lab"
                    "\\documentclass{buptsse-lab}
@@ -331,6 +343,9 @@ you should place your code here."
 \\usepackage{amsmath, amssymb, minted}
 \\usepackage[hidelinks]{hyperref}
 \\usepackage{xeCJK, fontspec}
+\\setmainfont{Arno Pro}
+\\setsansfont{Proxima Nova}
+\\setmonofont{Source Code Pro}
 \\setCJKmainfont[BoldFont={方正准雅宋_GBK}]{方正兰亭刊宋_GBK}
 \\setCJKsansfont{汉仪旗黑}"
                    ("\\section{%s}" . "\\section*{%s}")
