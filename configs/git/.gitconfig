@@ -1,3 +1,5 @@
+[credential]
+	helper = cache
 [user]
-	email = xingrobin@gmail.com
 	name = robinx
+	email = xingrobin@gmail.com

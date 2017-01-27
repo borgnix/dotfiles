@@ -19,7 +19,7 @@ export LC_LANG=und
 
 #Default editor
 export ALTERNATE_EDITOR=""
-export EDITOR="emacsclient"
+export EDITOR="ecli"
 
 export PAGER="less"
 export LD_LIBRARY_PATH=/usr/local/lib
