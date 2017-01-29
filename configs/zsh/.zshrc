@@ -71,9 +71,9 @@ alias zshconfig="emacs ~/.zshrc"
 alias p="LD_PRELOAD=libproxychains4.so"
 alias yd="ydcv"
 alias hdd="/run/media/robin/hdd-disk"
-alias sdt='WINEPREFIX="/home/robin/telelogic_wine" wine /home/robin/telelogic_wine/drive_c/Telelogic/SDL_TTCN_Suite4.3/bin/wini386/sdt.exe'
 alias sseftp='lftp student:student@10.125.110.141/ -e "set ftp:prefer-epsv no; set ftp:use-allo no"'
 alias -g G="| grep"
+alias -g L="| less"
 alias dp="DISPLAY=:0"
 alias vimpc="vimpc -h ~/.config/mpd/socket"
 alias kdeshare="kdeconnect-cli -n Meizu --share "
