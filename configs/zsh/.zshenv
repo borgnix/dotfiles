@@ -14,7 +14,7 @@ export ZSH_THEME='robbyrussell'
 export JAVA_HOME=/usr/lib/jvm/java-8-jdk
 
 #Language and Font
-export LC_ALL=C #make output display English
+# export LC_ALL=C
 export LANG=zh_CN.UTF-8
 export LC_LANG=und
 
