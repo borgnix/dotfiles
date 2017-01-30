@@ -14,6 +14,7 @@ export ZSH_THEME='robbyrussell'
 export JAVA_HOME=/usr/lib/jvm/java-8-jdk
 
 #Language and Font
+export LC_ALL=C #make output display English
 export LANG=zh_CN.UTF-8
 export LC_LANG=und
 
@@ -26,3 +27,4 @@ export LD_LIBRARY_PATH=/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
 export XDG_CONFIG_HOME=$HOME/.config
+
