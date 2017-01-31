@@ -298,7 +298,7 @@ you should place your code here."
     (setq org-directory "~/org/"
           org-default-notes-file "~/org/collections.org"
           org-agenda-files '("~/org/calendar")
-          org-todo-keywords '((sequence "TODO" "NEXT" "|" "DONE" "CANCELED"))
+          org-todo-keywords '((sequence "TODO" "NEXT" "WAITING" "|" "DONE" "CANCELED"))
           org-agenda-skip-scheduled-if-done nil
           org-agenda-skip-scheduled-if-deadline-is-shown t
           org-src-fontify-natively t
@@ -340,7 +340,18 @@ you should place your code here."
                    ("\\subsection{%s}" . "\\subsection*{%s}")
                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+                   )
+                 )
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+      '((python . t)
+        (plantuml . t)
+        (dot . t)
+        )
+      )
+    (defun my/org-confirm-babel-evaluate (lang body) (not (or (string= lang "dot") (string= lang "plantuml"))))
+    (setq org-confirm-babel-evaluate 'my/org-confirm-babel-evaluate)
     (add-to-list 'org-latex-classes
                  '("article"
                    "\\documentclass[12pt]{article}
@@ -360,18 +371,9 @@ you should place your code here."
                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
                         )
-  (org-babel-do-load-languages
-    'org-babel-load-languages
-    '((python . t)
-      (plantuml . t)
-      (dot . t)
-     )
-)
   ;; LaTeX
   (setq TeX-engine 'xetex
         TeX-PDF-mode t)
-  (defun my/org-confirm-babel-evaluate (lang body) (not (or (string= lang "dot") (string= lang "plantuml"))))
-  (setq org-confirm-babel-evaluate 'my/org-confirm-babel-evaluate)
 
   ;;faces config
   (custom-set-variables
